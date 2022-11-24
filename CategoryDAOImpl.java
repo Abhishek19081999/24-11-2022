@@ -50,7 +50,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		
 					
-		//using RowMapper anonymous class, we can create a separate RowMapper for reuse
+		
 		Category cat = jdbcTemplate.queryForObject(query, 
 				new Object[]{id}, new RowMapper<Category>(){
 
