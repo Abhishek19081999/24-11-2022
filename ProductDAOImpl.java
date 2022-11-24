@@ -23,7 +23,7 @@ public class ProductDAOImpl implements ProductDAO{
 	
 	@Override
 	public void save(Product product) {
-	String query = " insert products(id, name, price, unitsInStock, discontinued) values (?, ?, ?, ?,?)";
+		String query = " insert products(id, name, price, unitsInStock, discontinued) values (?, ?, ?, ?,?)";
 		
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		
@@ -54,7 +54,7 @@ public class ProductDAOImpl implements ProductDAO{
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		
 					
-		//using RowMapper anonymous class, we can create a separate RowMapper for reuse
+	
 		Product pro = jdbcTemplate.queryForObject(query, 
 				new Object[]{id}, new RowMapper<Product>(){
 
@@ -187,7 +187,7 @@ public class ProductDAOImpl implements ProductDAO{
 
 	@Override
 	public List<Product> getByBetweenPrice(double iPrice, double oPrice) {
-String query = "select id, name, price, unitsInStock, discontinued from products where price between ? and ?";
+		String query = "select id, name, price, unitsInStock, discontinued from products where price between ? and ?";
 		
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		
@@ -212,7 +212,7 @@ String query = "select id, name, price, unitsInStock, discontinued from products
 
 	@Override
 	public List<Product> getDiscontinuedProducts() {
-String query = "select id, name, price, unitsInStock, discontinued from products where disconitinued = true";
+		String query = "select id, name, price, unitsInStock, discontinued from products where disconitinued = true";
 		
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		
